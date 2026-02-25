@@ -1,0 +1,25 @@
+dist:
+  name: otelcol-edge
+  description: Minimal OpenTelemetry Collector for edge observability
+  output_path: /build/output
+  otelcol_version: 0.95.0
+
+extensions:
+  - gomod: go.opentelemetry.io/collector/extension/ballastextension v0.95.0
+  - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/extension/storage/filestorage v0.95.0
+  - gomod: go.opentelemetry.io/collector/extension/zpagesextension v0.95.0
+  - gomod: go.opentelemetry.io/collector/extension/healthcheckextension v0.95.0
+
+receivers:
+  - gomod: go.opentelemetry.io/collector/receiver/otlpreceiver v0.95.0
+
+processors:
+  - gomod: go.opentelemetry.io/collector/processor/batchprocessor v0.95.0
+  - gomod: go.opentelemetry.io/collector/processor/memorylimiterprocessor v0.95.0
+  - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/processor/tailsamplingprocessor v0.95.0
+  - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/processor/resourceprocessor v0.95.0
+
+exporters:
+  - gomod: go.opentelemetry.io/collector/exporter/otlpexporter v0.95.0
+  - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/exporter/lokiexporter v0.95.0
+  - gomod: github.com/open-telemetry/opentelemetry-collector-contrib/exporter/prometheusremotewriteexporter v0.95.0
