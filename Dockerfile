@@ -15,7 +15,7 @@ COPY otelcol-builder.yaml .
 
 # Cross-compile for the target platform
 RUN GOOS=${TARGETOS} GOARCH=${TARGETARCH} \
-    /root/go/bin/builder --config=otelcol-builder.yaml
+    /go/bin/builder --config=otelcol-builder.yaml
 
 # ── Stage 2: runtime ──────────────────────────────────────────────────────────
 FROM gcr.io/distroless/base-debian12
