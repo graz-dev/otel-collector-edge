@@ -6,6 +6,9 @@ FROM --platform=$BUILDPLATFORM golang:1.21-alpine AS builder
 ARG TARGETOS
 ARG TARGETARCH
 
+# git is required by OCB to resolve Go modules via VCS
+RUN apk add --no-cache git
+
 # Install OCB (OpenTelemetry Collector Builder)
 RUN go install go.opentelemetry.io/collector/cmd/builder@v0.95.0
 
