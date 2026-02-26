@@ -10,7 +10,7 @@ ARG TARGETARCH
 RUN apk add --no-cache git
 
 # Install OCB (OpenTelemetry Collector Builder)
-RUN go install go.opentelemetry.io/collector/cmd/builder@v0.95.0
+RUN go install go.opentelemetry.io/collector/cmd/builder@v0.146.0
 
 WORKDIR /build
 
